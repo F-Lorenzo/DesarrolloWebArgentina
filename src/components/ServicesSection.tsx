@@ -83,7 +83,7 @@ const ServicesSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="flex flex-col lg:flex-row gap-4 overflow-x-auto pb-4">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -91,26 +91,26 @@ const ServicesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`bg-card p-6 md:p-8 rounded-xl border ${
+              className={`bg-card p-5 rounded-2xl border flex-shrink-0 lg:flex-1 min-w-[260px] ${
                 service.highlight
                   ? "border-primary shadow-lg shadow-primary/10"
                   : "border-border"
-              } ${index === services.length - 1 ? "md:col-span-2 md:max-w-xl md:mx-auto" : ""}`}
+              } hover:shadow-md transition-shadow`}
             >
               {service.highlight && (
-                <div className="inline-block bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-full mb-4">
+                <div className="inline-block bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-full mb-3">
                   Más Popular
                 </div>
               )}
-              <h3 className="text-2xl font-bold text-foreground mb-2">
+              <h3 className="text-lg font-bold text-foreground mb-1">
                 {service.title}
               </h3>
-              <p className="text-muted-foreground mb-6">{service.description}</p>
-              <ul className="space-y-3">
+              <p className="text-muted-foreground text-sm mb-4">{service.description}</p>
+              <ul className="space-y-2">
                 {service.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground">{feature}</span>
+                  <li key={feature} className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-foreground text-sm">{feature}</span>
                   </li>
                 ))}
               </ul>
