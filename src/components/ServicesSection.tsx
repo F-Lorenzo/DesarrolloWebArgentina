@@ -95,7 +95,7 @@ const ServicesSection = () => {
                 service.highlight
                   ? "border-primary shadow-lg shadow-primary/10"
                   : "border-border"
-              }`}
+              } ${index === services.length - 1 ? "md:col-span-2 md:max-w-xl md:mx-auto" : ""}`}
             >
               {service.highlight && (
                 <div className="inline-block bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-full mb-4">
