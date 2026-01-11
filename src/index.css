@@ -7,40 +7,40 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    --foreground: 216 27% 17%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 216 27% 17%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 216 27% 17%;
 
-    --primary: 168 84% 39%;
+    --primary: 176 90% 27%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 216 27% 17%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 216 20% 95%;
+    --muted-foreground: 216 20% 40%;
 
-    --accent: 168 84% 39%;
+    --accent: 176 90% 27%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 168 84% 39%;
+    --border: 216 20% 88%;
+    --input: 216 20% 88%;
+    --ring: 176 90% 27%;
 
     --radius: 0.75rem;
 
     /* Custom colors */
-    --turquoise: 168 84% 39%;
-    --turquoise-dark: 168 74% 30%;
-    --turquoise-light: 168 84% 50%;
-    --green-dark: 160 45% 25%;
+    --turquoise: 176 90% 27%;
+    --turquoise-dark: 176 85% 20%;
+    --turquoise-light: 176 80% 35%;
+    --dark-contrast: 216 27% 17%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -53,33 +53,33 @@
   }
 
   .dark {
-    --background: 222 47% 11%;
+    --background: 216 27% 12%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 11%;
+    --card: 216 27% 15%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 11%;
+    --popover: 216 27% 15%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 168 84% 45%;
+    --primary: 176 80% 35%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 33% 17%;
+    --secondary: 216 27% 22%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217 33% 17%;
+    --muted: 216 27% 20%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 168 84% 45%;
+    --accent: 176 80% 35%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 168 84% 45%;
+    --border: 216 27% 22%;
+    --input: 216 27% 22%;
+    --ring: 176 80% 35%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -108,15 +108,15 @@
 
 @layer utilities {
   .gradient-hero {
-    background: linear-gradient(180deg, hsl(168, 84%, 39%) 0%, hsl(168, 84%, 50%) 50%, hsl(0, 0%, 100%) 100%);
+    background: linear-gradient(180deg, hsl(176, 90%, 27%) 0%, hsl(176, 80%, 35%) 50%, hsl(0, 0%, 100%) 100%);
   }
 
   .gradient-turquoise {
-    background: linear-gradient(135deg, hsl(168, 84%, 39%) 0%, hsl(168, 74%, 30%) 100%);
+    background: linear-gradient(135deg, hsl(176, 90%, 27%) 0%, hsl(216, 27%, 17%) 100%);
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, hsl(168, 84%, 39%) 0%, hsl(168, 74%, 30%) 100%);
+    background: linear-gradient(135deg, hsl(176, 90%, 27%) 0%, hsl(176, 85%, 20%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
