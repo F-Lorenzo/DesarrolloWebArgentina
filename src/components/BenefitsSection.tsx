@@ -62,23 +62,22 @@ const BenefitsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
           {benefits.map((benefit, index) => (
             <motion.div
               key={benefit.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-card p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-border"
+              transition={{ delay: index * 0.05 }}
+              className="bg-card p-4 rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-border text-center group"
             >
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3 mx-auto group-hover:bg-primary/20 transition-colors">
                 <benefit.icon className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">
+              <h3 className="text-sm font-semibold text-foreground leading-tight">
                 {benefit.title}
               </h3>
-              <p className="text-muted-foreground">{benefit.description}</p>
             </motion.div>
           ))}
         </div>
