@@ -18,10 +18,10 @@
     --primary: 176 90% 27%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 216 27% 17%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 216 27% 17%;
 
-    --muted: 216 20% 95%;
+    --muted: 0 0% 98%;
     --muted-foreground: 216 20% 40%;
 
     --accent: 176 90% 27%;
@@ -36,11 +36,12 @@
 
     --radius: 0.75rem;
 
-    /* Custom colors */
+    /* Custom colors - gray only for details */
     --turquoise: 176 90% 27%;
     --turquoise-dark: 176 85% 20%;
     --turquoise-light: 176 80% 35%;
     --dark-contrast: 216 27% 17%;
+    --detail-gray: 216 20% 60%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;

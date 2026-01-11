@@ -52,10 +52,22 @@ const ServicesSection = () => {
         "Mantenimiento continuo",
       ],
     },
+    {
+      title: "UX/CRO - Optimización Continua",
+      description: "Mejora constante basada en datos reales",
+      features: [
+        "Análisis de datos y comportamiento de usuarios",
+        "Mejora continua de landing pages",
+        "Optimización de KPIs de conversión",
+        "Tests A/B y experimentación",
+        "Auditorías UX mensuales",
+        "Informes de rendimiento detallados",
+      ],
+    },
   ];
 
   return (
-    <section id="servicios" className="py-20 bg-secondary/50">
+    <section id="servicios" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

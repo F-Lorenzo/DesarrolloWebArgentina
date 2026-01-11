@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { TrendingUp, Target, Clock, Globe, Code, Award } from "lucide-react";
+import { TrendingUp, Target, Clock, Globe, Code, Award, BarChart3, MousePointerClick } from "lucide-react";
 
 const BenefitsSection = () => {
   const benefits = [
@@ -33,10 +33,20 @@ const BenefitsSection = () => {
       title: "6+ Años de Experiencia",
       description: "Respaldo de cientos de proyectos exitosos realizados.",
     },
+    {
+      icon: BarChart3,
+      title: "Mejora Continua con Datos",
+      description: "Optimización de landing pages basada en métricas reales y comportamiento de usuarios.",
+    },
+    {
+      icon: MousePointerClick,
+      title: "UX para Mejores KPIs",
+      description: "Experiencia de usuario optimizada para mejorar tasas de conversión y engagement.",
+    },
   ];
 
   return (
-    <section id="beneficios" className="py-20 bg-secondary/50">
+    <section id="beneficios" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
