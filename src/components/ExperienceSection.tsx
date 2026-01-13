@@ -64,21 +64,6 @@ const ExperienceSection = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Logo */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="flex justify-center"
-        >
-          <div className="flex items-center gap-3 bg-card border border-border rounded-xl px-8 py-4">
-            <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-2xl">D</span>
-            </div>
-            <span className="text-2xl font-bold text-foreground">Digital Boost</span>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

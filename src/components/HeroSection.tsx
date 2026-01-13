@@ -50,7 +50,7 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-primary-foreground/80 text-lg mb-8 max-w-lg mx-auto lg:mx-0">
-              Desarrollamos tu web o e-commerce profesional en tiempo récord. 
+              Desarrollamos tu web o e-commerce profesional en tiempo récord.
               Soluciones digitales que impulsan tu negocio al siguiente nivel.
             </p>
 
@@ -62,21 +62,6 @@ const HeroSection = () => {
               Solicitar Presupuesto
             </Button>
 
-            {/* Stats */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-8 mt-12">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary-foreground">+6</div>
-                <div className="text-primary-foreground/70 text-sm">Años</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary-foreground">3</div>
-                <div className="text-primary-foreground/70 text-sm">Días</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary-foreground">360°</div>
-                <div className="text-primary-foreground/70 text-sm">Digital</div>
-              </div>
-            </div>
           </motion.div>
 
           {/* Right Content - Floating Circle */}
@@ -90,7 +75,7 @@ const HeroSection = () => {
             <div className="relative w-72 h-72 md:w-96 md:h-96">
               {/* Rotating border */}
               <div className="absolute inset-0 rounded-full border-4 border-dashed border-primary-foreground/30 animate-spin-slow" />
-              
+
               {/* Inner circle */}
               <div className="absolute inset-4 rounded-full bg-primary-foreground/10 backdrop-blur-sm flex items-center justify-center">
                 <div className="text-center">
@@ -115,6 +100,35 @@ const HeroSection = () => {
             </div>
           </motion.div>
         </div>
+      </div>
+
+      {/* Partners Section */}
+      <div className="container mx-auto px-4 pb-16 md:pb-24">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10"
+        >
+          <span className="text-primary-foreground/60 text-sm font-bold uppercase tracking-[0.2em]">Partner oficial:</span>
+          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16">
+            <img
+              src="/tiendanube-logo.png"
+              alt="Tienda Nube"
+              className="h-8 md:h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 contrast-125 grayscale hover:grayscale-0"
+            />
+            <img
+              src="/woocommerce-logo.png"
+              alt="WooCommerce"
+              className="h-8 md:h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 contrast-125 grayscale hover:grayscale-0"
+            />
+            <img
+              src="/shopify-logo.png"
+              alt="Shopify"
+              className="h-8 md:h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 contrast-125 grayscale hover:grayscale-0"
+            />
+          </div>
+        </motion.div>
       </div>
     </section>
   );

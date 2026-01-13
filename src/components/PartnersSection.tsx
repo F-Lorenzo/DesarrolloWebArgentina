@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 
 const PartnersSection = () => {
   const partners = [
-    { name: "Tienda Nube", logo: "🛒" },
-    { name: "WooCommerce", logo: "🛍️" },
-    { name: "Shopify", logo: "🏪" },
+    { name: "Tienda Nube", logo: "/tiendanube-logo.png" },
+    { name: "WooCommerce", logo: "/woocommerce-logo.png" },
+    { name: "Shopify", logo: "/shopify-logo.png" },
   ];
 
   return (
-    <section className="py-12 bg-background">
+    <section className="py-12 bg-primary">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -23,10 +23,13 @@ const PartnersSection = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
+              className="flex items-center justify-center"
             >
-              <span className="text-3xl">{partner.logo}</span>
-              <span className="text-xl font-semibold">{partner.name}</span>
+              <img
+                src={partner.logo}
+                alt={partner.name}
+                className="h-12 w-auto object-contain"
+              />
             </motion.div>
           ))}
         </motion.div>
@@ -36,3 +39,5 @@ const PartnersSection = () => {
 };
 
 export default PartnersSection;
+
+

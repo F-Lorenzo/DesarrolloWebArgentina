@@ -1,7 +1,7 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
-const NOTIFICATION_EMAIL = Deno.env.get("NOTIFICATION_EMAIL") || "tu-email@ejemplo.com";
+const NOTIFICATION_EMAIL = Deno.env.get("NOTIFICATION_EMAIL") || "ventas@desarrollowebargentina.com";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -34,7 +34,7 @@ async function sendEmail(to: string[], subject: string, html: string) {
       Authorization: `Bearer ${RESEND_API_KEY}`,
     },
     body: JSON.stringify({
-      from: "Digital Boost <onboarding@resend.dev>",
+      from: "Desarrollo Web Argentina <onboarding@resend.dev>",
       to,
       subject,
       html,
@@ -86,7 +86,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send confirmation email to client
     await sendEmail(
       [data.email],
-      "¡Recibimos tu solicitud! - Digital Boost",
+      "¡Recibimos tu solicitud! - Desarrollo Web Argentina",
       `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <h1 style="color: #14B8A6; text-align: center;">¡Gracias por contactarnos, ${data.name}!</h1>
         <p style="text-align: center; color: #6b7280;">
@@ -102,9 +102,10 @@ const handler = async (req: Request): Promise<Response> => {
       status: 200,
       headers: { "Content-Type": "application/json", ...corsHeaders },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error in send-contact-email function:", error);
-    return new Response(JSON.stringify({ error: error.message }), {
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    return new Response(JSON.stringify({ error: errorMessage }), {
       status: 500,
       headers: { "Content-Type": "application/json", ...corsHeaders },
     });
