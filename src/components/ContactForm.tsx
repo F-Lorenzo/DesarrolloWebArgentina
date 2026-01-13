@@ -64,20 +64,26 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contacto" className="py-20 bg-secondary/50">
-      <div className="container mx-auto px-4">
-        <div className="max-w-2xl mx-auto">
+    <section id="contacto" className="py-24 bg-slate-950 relative overflow-hidden border-t border-white/5">
+      {/* Ambient Brand Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-[#056e6e]/20 to-transparent pointer-events-none"></div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Solicita tu Presupuesto
+            <div className="inline-block px-4 py-1.5 bg-[#056e6e]/10 border border-[#056e6e]/20 rounded-full text-[#056e6e] text-sm font-bold uppercase tracking-wider mb-6">
+              Hablemos hoy
+            </div>
+            <h2 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
+              ¿Listo para <span className="text-cyan-500">empezar?</span>
             </h2>
-            <p className="text-muted-foreground text-lg">
-              Cuéntanos sobre tu proyecto y te contactaremos en menos de 24 horas
+            <p className="text-slate-400 text-xl font-medium max-w-2xl mx-auto">
+              Cuéntanos sobre tu proyecto y te contactaremos en menos de 24 horas para un diagnóstico gratuito.
             </p>
           </motion.div>
 
@@ -86,11 +92,11 @@ const ContactForm = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             onSubmit={handleSubmit}
-            className="bg-card p-6 md:p-8 rounded-xl border border-border shadow-sm"
+            className="bg-slate-900/50 backdrop-blur-xl p-8 md:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl relative z-10"
           >
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <Label htmlFor="name">Nombre Completo *</Label>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-3">
+                <Label htmlFor="name" className="text-white font-bold ml-1">Nombre Completo *</Label>
                 <Input
                   id="name"
                   required
@@ -99,11 +105,12 @@ const ContactForm = () => {
                     setFormData({ ...formData, name: e.target.value })
                   }
                   placeholder="Tu nombre"
+                  className="bg-slate-950/50 border-white/10 text-white h-12 rounded-xl focus:border-[#056e6e] transition-colors"
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="email">Email *</Label>
+              <div className="space-y-3">
+                <Label htmlFor="email" className="text-white font-bold ml-1">Email *</Label>
                 <Input
                   id="email"
                   type="email"
@@ -113,11 +120,12 @@ const ContactForm = () => {
                     setFormData({ ...formData, email: e.target.value })
                   }
                   placeholder="tu@email.com"
+                  className="bg-slate-950/50 border-white/10 text-white h-12 rounded-xl focus:border-[#056e6e] transition-colors"
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="phone">Teléfono</Label>
+              <div className="space-y-3">
+                <Label htmlFor="phone" className="text-white font-bold ml-1">Teléfono</Label>
                 <Input
                   id="phone"
                   type="tel"
@@ -126,11 +134,12 @@ const ContactForm = () => {
                     setFormData({ ...formData, phone: e.target.value })
                   }
                   placeholder="+54 11 1234-5678"
+                  className="bg-slate-950/50 border-white/10 text-white h-12 rounded-xl focus:border-[#056e6e] transition-colors"
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="company">Empresa / Negocio</Label>
+              <div className="space-y-3">
+                <Label htmlFor="company" className="text-white font-bold ml-1">Empresa / Negocio</Label>
                 <Input
                   id="company"
                   value={formData.company}
@@ -138,12 +147,13 @@ const ContactForm = () => {
                     setFormData({ ...formData, company: e.target.value })
                   }
                   placeholder="Nombre de tu empresa"
+                  className="bg-slate-950/50 border-white/10 text-white h-12 rounded-xl focus:border-[#056e6e] transition-colors"
                 />
               </div>
             </div>
 
-            <div className="space-y-2 mt-6">
-              <Label htmlFor="service">Servicio de interés *</Label>
+            <div className="space-y-3 mt-8">
+              <Label htmlFor="service" className="text-white font-bold ml-1">Servicio de interés *</Label>
               <Select
                 required
                 value={formData.service}
@@ -151,10 +161,10 @@ const ContactForm = () => {
                   setFormData({ ...formData, service: value })
                 }
               >
-                <SelectTrigger className="bg-background">
+                <SelectTrigger className="bg-slate-950/50 border-white/10 text-white h-12 rounded-xl focus:ring-[#056e6e]">
                   <SelectValue placeholder="Selecciona un servicio" />
                 </SelectTrigger>
-                <SelectContent className="bg-background">
+                <SelectContent className="bg-slate-900 border-white/10 text-white rounded-xl">
                   <SelectItem value="tiendanube">Tienda Nube</SelectItem>
                   <SelectItem value="woocommerce">WooCommerce</SelectItem>
                   <SelectItem value="shopify">Shopify</SelectItem>
@@ -165,8 +175,8 @@ const ContactForm = () => {
               </Select>
             </div>
 
-            <div className="space-y-2 mt-6">
-              <Label htmlFor="message">Mensaje *</Label>
+            <div className="space-y-3 mt-8">
+              <Label htmlFor="message" className="text-white font-bold ml-1">Mensaje *</Label>
               <Textarea
                 id="message"
                 required
@@ -176,6 +186,7 @@ const ContactForm = () => {
                 }
                 placeholder="Cuéntanos sobre tu proyecto..."
                 rows={5}
+                className="bg-slate-950/50 border-white/10 text-white rounded-xl focus:border-[#056e6e] transition-colors"
               />
             </div>
 
@@ -183,16 +194,16 @@ const ContactForm = () => {
               type="submit"
               disabled={isLoading}
               size="lg"
-              className="w-full mt-6 bg-primary hover:bg-primary/90"
+              className="w-full mt-10 bg-[#056e6e] hover:bg-[#045a5a] text-white font-black py-8 rounded-2xl text-xl transition-all shadow-lg shadow-[#056e6e]/20"
             >
               {isLoading ? (
                 <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Enviando...
+                  <Loader2 className="mr-2 h-6 w-6 animate-spin" />
+                  Enviando Solicitud...
                 </>
               ) : (
                 <>
-                  <Send className="mr-2 h-4 w-4" />
+                  <Send className="mr-2 h-6 w-6" />
                   Enviar Solicitud
                 </>
               )}
