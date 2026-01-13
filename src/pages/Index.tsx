@@ -18,7 +18,7 @@ const Index = () => {
     "@type": "WebSite",
     "name": "Desarrollo Web Argentina",
     "url": "https://desarrollowebargentina.com.ar",
-    "description": "Desarrollo web y e-commerce de alto rendimiento en Argentina.",
+    "description": "Expertos en E-commerce, Software a medida y SEO Local para dominar Google Maps.",
     "publisher": {
       "@type": "Organization",
       "name": "Desarrollo Web Argentina",

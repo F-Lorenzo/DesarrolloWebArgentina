@@ -168,6 +168,7 @@ const ContactForm = () => {
                   <SelectItem value="tiendanube">Tienda Nube</SelectItem>
                   <SelectItem value="woocommerce">WooCommerce</SelectItem>
                   <SelectItem value="shopify">Shopify</SelectItem>
+                  <SelectItem value="seo-local">SEO Local (Google Maps)</SelectItem>
                   <SelectItem value="software">Software Personalizado</SelectItem>
                   <SelectItem value="360">Solución 360° Digital</SelectItem>
                   <SelectItem value="otro">Otro</SelectItem>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, Star, TrendingUp, ArrowRight, Zap, Shield, Rocket } from "lucide-react";
+import { Check, Star, TrendingUp, ArrowRight, Zap, Shield, Rocket, MapPin } from "lucide-react";
 import { Button } from "./ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -37,6 +37,21 @@ const ServicesSection = () => {
       textColor: "text-violet-600",
       variant: "featured",
       badge: "Recomendado",
+    },
+    {
+      title: "SEO Local (Maps)",
+      description: "Domina los resultados de tu zona",
+      icon: <MapPin className="w-6 h-6" />,
+      features: [
+        "Posicionamiento en Google Maps",
+        "Gestión de reseñas y reputación",
+        "Optimización de Perfil de Negocio",
+        "Atracción de tráfico local",
+      ],
+      color: "bg-emerald-500",
+      lightColor: "bg-emerald-50",
+      textColor: "text-emerald-600",
+      variant: "default",
     },
     {
       title: "Software Custom",
@@ -88,7 +103,7 @@ const ServicesSection = () => {
         </motion.div>
 
         {/* Proyectos Core */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -96,33 +111,33 @@ const ServicesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`relative p-8 rounded-3xl border border-slate-100 shadow-xl hover:shadow-2xl transition-all duration-500 bg-white group`}
+              className={`relative p-8 rounded-3xl border border-slate-100 shadow-xl hover:shadow-2xl transition-all duration-500 bg-white group flex flex-col`}
             >
               {service.badge && (
-                <span className="absolute -top-4 left-8 px-4 py-1 bg-violet-600 text-white text-xs font-bold rounded-full shadow-lg">
+                <span className="absolute -top-4 left-8 px-4 py-1 bg-violet-600 text-white text-xs font-bold rounded-full shadow-lg z-10">
                   {service.badge}
                 </span>
               )}
 
-              <div className={`w-14 h-14 ${service.lightColor} ${service.textColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+              <div className={`w-14 h-14 ${service.lightColor} ${service.textColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shrink-0`}>
                 {service.icon}
               </div>
 
-              <h4 className="text-2xl font-extrabold text-slate-900 mb-2">{service.title}</h4>
-              <p className="text-slate-600 mb-6 font-medium">{service.description}</p>
+              <h4 className="text-xl font-extrabold text-slate-900 mb-2 leading-tight">{service.title}</h4>
+              <p className="text-slate-600 mb-6 font-medium text-sm leading-relaxed">{service.description}</p>
 
-              <ul className="space-y-4 mb-8">
+              <ul className="space-y-4 mb-8 flex-grow">
                 {service.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-3 text-slate-700 text-sm font-semibold">
-                    <div className={`w-5 h-5 ${service.lightColor} ${service.textColor} rounded-full flex items-center justify-center`}>
-                      <Check className="w-3 h-3" strokeWidth={3} />
+                  <li key={feature} className="flex items-start gap-3 text-slate-700 text-xs font-semibold leading-tight">
+                    <div className={`w-4 h-4 ${service.lightColor} ${service.textColor} rounded-full flex items-center justify-center shrink-0 mt-0.5`}>
+                      <Check className="w-2.5 h-2.5" strokeWidth={4} />
                     </div>
                     {feature}
                   </li>
                 ))}
               </ul>
 
-              <div className={`h-1.5 w-12 ${service.color} rounded-full`}></div>
+              <div className={`h-1 w-10 ${service.color} rounded-full shrink-0`}></div>
             </motion.div>
           ))}
         </div>
