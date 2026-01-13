@@ -9,9 +9,31 @@ import FAQSection from "@/components/FAQSection";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 
+import TestimonialsSection from "@/components/TestimonialsSection";
+
 const Index = () => {
+  // JSON-LD Schema Markup for SEO
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Desarrollo Web Argentina",
+    "url": "https://desarrollowebargentina.com.ar",
+    "description": "Desarrollo web y e-commerce de alto rendimiento en Argentina.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Desarrollo Web Argentina",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://desarrollowebargentina.com.ar/logo.png"
+      }
+    }
+  };
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-slate-950">
+      <script type="application/ld+json">
+        {JSON.stringify(schemaMarkup)}
+      </script>
       <Header />
       <HeroSection />
       <BenefitsSection />
@@ -19,6 +41,7 @@ const Index = () => {
       <ServicesSection />
       <ExperienceSection />
       <PortfolioSection />
+      <TestimonialsSection />
       <FAQSection />
       <ContactForm />
       <Footer />
