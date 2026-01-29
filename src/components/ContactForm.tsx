@@ -12,7 +12,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 import { Loader2, Send } from "lucide-react";
 
 const ContactForm = () => {
@@ -31,16 +30,36 @@ const ContactForm = () => {
     e.preventDefault();
     setIsLoading(true);
 
+    const serviceLabels: Record<string, string> = {
+      tiendanube: "Tienda Nube",
+      woocommerce: "WooCommerce",
+      shopify: "Shopify",
+      "seo-local": "SEO Local (Google Maps)",
+      software: "Software Personalizado",
+      "360": "Solución 360° Digital",
+      otro: "Otro",
+    };
+
+    const dataToSend = {
+      ...formData,
+      service: serviceLabels[formData.service] || formData.service,
+    };
+
     try {
-      const { error } = await supabase.functions.invoke("send-contact-email", {
-        body: formData,
+      const response = await fetch("https://formsubmit.co/ajax/8c44e2c680c29672f0477430552f0607", {
+        method: "POST",
+        body: JSON.stringify(dataToSend),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
       });
 
-      if (error) throw error;
+      if (!response.ok) throw new Error("Failed to send form");
 
       toast({
         title: "¡Mensaje enviado!",
-        description: "Nos pondremos en contacto contigo pronto.",
+        description: "Nos pondremos en contacto contigo pronto. Si es tu primera vez usando Formspree, revisa tu casilla para confirmar el servicio.",
       });
 
       setFormData({

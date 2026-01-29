@@ -17,14 +17,14 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Desarrollo Web Argentina",
-    "url": "https://desarrollowebargentina.com.ar",
+    "url": "https://www.desarrollowebargentina.com",
     "description": "Expertos en E-commerce, Software a medida y SEO Local para dominar Google Maps.",
     "publisher": {
       "@type": "Organization",
       "name": "Desarrollo Web Argentina",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://desarrollowebargentina.com.ar/logo.png"
+        "url": "https://www.desarrollowebargentina.com/logo.png"
       }
     }
   };
