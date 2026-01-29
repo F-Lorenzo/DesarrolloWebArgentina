@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 const WhatsAppButton = () => {
     const [showTooltip, setShowTooltip] = useState(false);
     const [isTyping, setIsTyping] = useState(true);
-    const phoneNumber = "+5491100000000"; // Reemplazar con el número real
+    const phoneNumber = "+5401150614837"; // Número de WhatsApp de Desarrollo Web Argentina
     const message = "Hola! Tengo una duda sobre los servicios de Desarrollo Web Argentina, ¿me podrán ayudar?";
 
     useEffect(() => {
