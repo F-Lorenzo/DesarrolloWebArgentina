@@ -39,7 +39,7 @@ const HeroSection = () => {
             >
               <span className="w-2 h-2 bg-primary-foreground rounded-full animate-pulse" />
               <span className="text-primary-foreground text-sm font-medium">
-                Promoción Limitada - Verano 2025
+                Promoción Limitada - Verano 2026
               </span>
             </motion.div>
 
