@@ -1,8 +1,50 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Code, Palette, Settings, Users, Zap } from "lucide-react";
+import { useState, useEffect } from "react";
+
+interface TimeLeft {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
 
 const HeroSection = () => {
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const targetDate = new Date("2026-02-28T23:59:59").getTime();
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        return {
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000),
+        };
+      }
+
+      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    };
+
+    setTimeLeft(calculateTimeLeft());
+
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   const scrollToContact = () => {
     const element = document.getElementById("contacto");
     if (element) {
@@ -41,6 +83,53 @@ const HeroSection = () => {
               <span className="text-primary-foreground text-sm font-medium">
                 Promoción Limitada - Verano 2026
               </span>
+            </motion.div>
+
+            {/* Countdown Timer */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="mb-8"
+            >
+              <div className="inline-block bg-gradient-to-br from-primary-foreground/15 via-primary-foreground/10 to-transparent backdrop-blur-md rounded-2xl p-6 border border-primary-foreground/20 shadow-2xl">
+                <div className="text-center mb-3">
+                  <span className="text-primary-foreground/90 text-xs font-bold uppercase tracking-widest">
+                    ⏰ La oferta termina en
+                  </span>
+                </div>
+                <div className="flex gap-3 justify-center">
+                  {[
+                    { value: timeLeft.days, label: "Días" },
+                    { value: timeLeft.hours, label: "Horas" },
+                    { value: timeLeft.minutes, label: "Min" },
+                    { value: timeLeft.seconds, label: "Seg" },
+                  ].map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex flex-col items-center"
+                    >
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-primary-foreground/20 rounded-xl blur-sm animate-pulse" />
+                        <div className="relative bg-primary-foreground/10 backdrop-blur-sm rounded-xl px-4 py-3 min-w-[70px] border border-primary-foreground/30">
+                          <motion.div
+                            key={item.value}
+                            initial={{ scale: 1 }}
+                            animate={{ scale: [1, 1.05, 1] }}
+                            transition={{ duration: 0.3 }}
+                            className="text-3xl font-bold text-primary-foreground tabular-nums"
+                          >
+                            {String(item.value).padStart(2, "0")}
+                          </motion.div>
+                        </div>
+                      </div>
+                      <span className="text-primary-foreground/70 text-xs font-medium mt-2 uppercase tracking-wide">
+                        {item.label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
 
             {/* Main Heading */}
