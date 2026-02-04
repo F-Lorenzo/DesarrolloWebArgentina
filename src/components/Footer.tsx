@@ -19,7 +19,7 @@ const Footer = () => {
               Términos
             </a>
             <a
-              href="#"
+              href="/politica-de-privacidad"
               className="text-background/70 hover:text-background transition-colors text-sm"
             >
               Privacidad

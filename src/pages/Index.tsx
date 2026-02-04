@@ -10,8 +10,23 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 
 import TestimonialsSection from "@/components/TestimonialsSection";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Index = () => {
+  const { state } = useLocation();
+
+  useEffect(() => {
+    if (state?.scrollTo) {
+      const element = document.getElementById(state.scrollTo);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  }, [state]);
+
   // JSON-LD Schema Markup for SEO
   const schemaMarkup = {
     "@context": "https://schema.org",
