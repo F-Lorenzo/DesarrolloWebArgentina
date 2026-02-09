@@ -57,6 +57,13 @@ const ContactForm = () => {
 
       if (!response.ok) throw new Error("Failed to send form");
 
+      // Meta Pixel conversion events
+      // @ts-ignore
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead');
+        fbq('track', 'Contact');
+      }
+
       toast({
         title: "¡Mensaje enviado!",
         description: "Nos pondremos en contacto contigo pronto. Si es tu primera vez usando Formspree, revisa tu casilla para confirmar el servicio.",

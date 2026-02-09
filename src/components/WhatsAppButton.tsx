@@ -20,6 +20,12 @@ const WhatsAppButton = () => {
     }, []);
 
     const handleClick = () => {
+        // Meta Pixel conversion event
+        // @ts-ignore
+        if (typeof fbq === 'function') {
+            fbq('track', 'Contact');
+        }
+
         const url = `https://wa.me/${phoneNumber.replace(/\+/g, "")}?text=${encodeURIComponent(message)}`;
         window.open(url, "_blank");
     };

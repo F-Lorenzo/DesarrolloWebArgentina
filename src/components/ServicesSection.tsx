@@ -111,7 +111,15 @@ const ServicesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`relative p-8 rounded-3xl border border-slate-100 shadow-xl hover:shadow-2xl transition-all duration-500 bg-white group flex flex-col`}
+              onClick={() => {
+                if (service.title === "SEO Local (Maps)") {
+                  // @ts-ignore
+                  if (typeof fbq === 'function') {
+                    fbq('track', 'FindLocation');
+                  }
+                }
+              }}
+              className={`relative p-8 rounded-3xl border border-slate-100 shadow-xl hover:shadow-2xl transition-all duration-500 bg-white group flex flex-col ${service.title === "SEO Local (Maps)" ? "cursor-pointer" : ""}`}
             >
               {service.badge && (
                 <span className="absolute -top-4 left-8 px-4 py-1 bg-violet-600 text-white text-xs font-bold rounded-full shadow-lg z-10">
