@@ -113,9 +113,8 @@ const ServicesSection = () => {
               transition={{ delay: index * 0.1 }}
               onClick={() => {
                 if (service.title === "SEO Local (Maps)") {
-                  // @ts-ignore
-                  if (typeof fbq === 'function') {
-                    fbq('track', 'FindLocation');
+                  if (typeof (window as any).fbq === 'function') {
+                    (window as any).fbq('track', 'FindLocation');
                   }
                 }
               }}

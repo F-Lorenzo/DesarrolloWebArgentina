@@ -58,10 +58,9 @@ const ContactForm = () => {
       if (!response.ok) throw new Error("Failed to send form");
 
       // Meta Pixel conversion events
-      // @ts-ignore
-      if (typeof fbq === 'function') {
-        fbq('track', 'Lead');
-        fbq('track', 'Contact');
+      if (typeof (window as any).fbq === 'function') {
+        (window as any).fbq('track', 'Lead');
+        (window as any).fbq('track', 'Contact');
       }
 
       toast({

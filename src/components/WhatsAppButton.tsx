@@ -21,9 +21,8 @@ const WhatsAppButton = () => {
 
     const handleClick = () => {
         // Meta Pixel conversion event
-        // @ts-ignore
-        if (typeof fbq === 'function') {
-            fbq('track', 'Contact');
+        if (typeof (window as any).fbq === 'function') {
+            (window as any).fbq('track', 'Contact');
         }
 
         const url = `https://wa.me/${phoneNumber.replace(/\+/g, "")}?text=${encodeURIComponent(message)}`;
